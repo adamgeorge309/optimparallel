@@ -8,9 +8,9 @@
       pkgs = import nixpkgs { system = "x86_64-linux"; };
     in
     {
-      defaultPackage.x86_64-linux = pkgs.python3Packages.buildPythonPackage rec {
+      defaultPackage.x86_64-linux = pkgs.python310Packages.buildPythonPackage rec {
         pname = "optimparallel";
-        version = "0.4.6";
+        version = "0.1.3";
 
         # Specify source of the package from GitHub
         src = pkgs.fetchFromGitHub {
@@ -21,7 +21,7 @@
         };
 
         # Specify Python package dependencies
-        propagatedBuildInputs = with pkgs.python3Packages; [
+        propagatedBuildInputs = with pkgs.python310Packages; [
           numpy
           scipy
         ];
